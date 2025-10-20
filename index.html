@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Programa de Ingeniería de Software - UCompensar (clon educativo para fines académicos)">
+  <meta name="robots" content="index,follow">
+  <title>Ingeniería de Software | UCompensar — Clon académico</title>
+  <link rel="preload" href="assets/hero.jpg" as="image">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="Logo UCompensar" width="40" height="40" />
+        <span>UCompensar</span>
+      </div>
+      <nav class="site-nav" aria-label="Principal">
+        <button id="btnMenu" class="btn btn-outline" aria-expanded="false" aria-controls="menu">Menú</button>
+        <ul id="menu" class="menu" hidden>
+          <li><a href="#programa">Programa</a></li>
+          <li><a href="#plan-estudios">Plan de estudios</a></li>
+          <li><a href="#admisiones">Admisiones</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" role="region" aria-label="Hero">
+    <div class="container">
+      <h1><strong>Ingeniería de Software</strong> — Bogotá</h1>
+      <p class="lead">Forma profesionales capaces de analizar, diseñar, construir y desplegar sistemas de software modernos.</p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="#admisiones">Inscríbete</a>
+        <a class="btn btn-secondary" href="#plan-estudios">Ver plan</a>
+      </div>
+    </div>
+  </section>
+
+  <main id="contenido" class="container">
+    <section id="programa" class="section">
+      <h2>Sobre el programa</h2>
+      <p><em>Aprende haciendo:</em> enfoque práctico con proyectos semestrales, laboratorios y retos de la industria.</p>
+      <ul class="features">
+        <li>Duración: 8 semestres</li>
+        <li>Modalidad: Presencial</li>
+        <li>Jornada: Diurna / Nocturna</li>
+      </ul>
+    </section>
+
+    <section id="plan-estudios" class="section">
+      <h2>Plan de estudios</h2>
+      <details>
+        <summary>Semestre 1</summary>
+        <ul>
+          <li>Fundamentos de Programación</li>
+          <li>Introducción al Desarrollo Web</li>
+          <li>Matemáticas I</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Semestre 2</summary>
+        <ul>
+          <li>Estructuras de Datos</li>
+          <li>Programación Orientada a Objetos</li>
+          <li>Base de Datos I</li>
+        </ul>
+      </details>
+    </section>
+
+    <section id="admisiones" class="section">
+      <h2>Admisiones</h2>
+      <p>Conoce los requisitos y fechas del proceso de inscripción.</p>
+      <div class="card grid-2">
+        <div>
+          <h3>Requisitos</h3>
+          <ol>
+            <li>Documento de identidad</li>
+            <li>Certificado de estudios</li>
+            <li>Formulario de inscripción</li>
+          </ol>
+        </div>
+        <form id="formDemo" aria-labelledby="tituloForm">
+          <h3 id="tituloForm">Recibe información</h3>
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" required placeholder="Tu nombre">
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" required placeholder="tunombre@correo.com">
+          <label for="jornada">Jornada de interés</label>
+          <select id="jornada" name="jornada" required>
+            <option value="">Seleccione</option>
+            <option>Diurna</option>
+            <option>Nocturna</option>
+          </select>
+          <button class="btn btn-primary" type="submit">Enviar</button>
+          <p id="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contacto" class="section">
+      <h2>Contacto</h2>
+      <address>
+        <strong>UCompensar</strong><br>
+        Bogotá D.C.<br>
+        <a href="mailto:info@ucompensar.edu.co">info@ucompensar.edu.co</a>
+      </address>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>&copy; 2025 — Clon con fines académicos. Diseñado por el equipo.</small>
+      <button id="btnTema" class="btn btn-outline" aria-pressed="false">Cambiar tema</button>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

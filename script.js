@@ -1,4 +1,4 @@
-// script.js — cambios de estructura y estilos con JavaScript
+// estructura y estilos con JavaScript
 (function () {
   const btnMenu = document.getElementById('btnMenu');
   const menu = document.getElementById('menu');
@@ -6,21 +6,21 @@
   const form = document.getElementById('formDemo');
   const msg = document.getElementById('msg');
 
-  // Control de menú responsive con atributos ARIA
+  // Control de menú
   btnMenu.addEventListener('click', () => {
     const expanded = btnMenu.getAttribute('aria-expanded') === 'true';
     btnMenu.setAttribute('aria-expanded', String(!expanded));
     menu.hidden = expanded;
   });
 
-  // Cambio de tema agregando/removiendo clase .dark en <body>
+  // Cambio de tema agregando
   btnTema.addEventListener('click', () => {
     const pressed = btnTema.getAttribute('aria-pressed') === 'true';
     btnTema.setAttribute('aria-pressed', String(!pressed));
     document.body.classList.toggle('dark');
   });
 
-  // Modificación del DOM: validar y mostrar mensaje
+  // validar y mostrar mensaje
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const nombre = form.nombre.value.trim();
@@ -37,7 +37,7 @@
     form.reset();
   });
 
-  // Ejemplo de modificación estructural: Inyectar aviso dinámico
+  // Inyectar aviso dinámico
   const aviso = document.createElement('div');
   aviso.className = 'card';
   aviso.innerHTML = '<p><strong>Aviso:</strong> Esta es una réplica con fines educativos.</p>';

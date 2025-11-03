@@ -3,7 +3,7 @@
   const btnMenu = document.getElementById('btnMenu');
   const menu = document.getElementById('menu');
   const btnTema = document.getElementById('btnTema');
-  const form = document.getElementById('formDemo');
+  const form = document.getElementById('formD');
   const msg = document.getElementById('msg');
 
   // Control de menú

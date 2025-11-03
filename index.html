@@ -1,124 +1,802 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Programa de Ingeniería de Software - UCompensar">
-  <meta name="robots" content="index,follow">
-  <title> Ingeniería de Software | UCompensar</title>
-  <link rel="preload" href="assets/hero.jpg" as="image">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingeniería de Sistemas - Fundación Universitaria Compensar</title>
+  <style>
+    :root {
+      --naranja: #ff6b00;
+      --naranja-hover: #ff8533;
+      --azul-oscuro: #1e3a5f;
+      --azul-claro: #0891b2;
+      --cyan: #06b6d4;
+      --texto-oscuro: #1f2937;
+      --gris-claro: #f3f4f6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--texto-oscuro);
+    }
+
+    /* Header superior */
+    .top-header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 0.5rem 0;
+    }
+
+    .top-nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--naranja);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .logo-text h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--texto-oscuro);
+    }
+
+    .logo-text p {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    .top-menu {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .top-menu a {
+      text-decoration: none;
+      color: var(--texto-oscuro);
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .top-menu a:hover {
+      color: var(--naranja);
+    }
+
+    .btn-trabajar {
+      background: var(--naranja);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .btn-trabajar:hover {
+      background: var(--naranja-hover);
+    }
+
+    /* Navegación principal */
+    .main-header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .main-nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--azul-oscuro);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: var(--naranja);
+    }
+
+    .search-btn {
+      background: var(--naranja);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: background 0.3s;
+    }
+
+    .search-btn:hover {
+      background: var(--naranja-hover);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0891b2 0%, #1e3a5f 100%);
+      color: white;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-text h2 {
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-info {
+      margin: 1.5rem 0;
+    }
+
+    .hero-info p {
+      margin: 0.5rem 0;
+      font-size: 1.05rem;
+    }
+
+    .hero-info strong {
+      font-weight: 700;
+    }
+
+    .btn-plan {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--cyan);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: transform 0.3s;
+    }
+
+    .btn-plan:hover {
+      transform: translateY(-2px);
+      background: #0e7490;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 1rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+
+    .valores-section {
+      max-width: 1400px;
+      margin: -80px auto 3rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .valor-card {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      color: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .valor-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .icon-badge {
+      background: #3730a3;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -3rem auto 1rem;
+      font-size: 1.5rem;
+      border: 4px solid white;
+    }
+
+    .valor-card h3 {
+      text-align: center;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .valor-precio {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 1rem 0;
+    }
+
+    .valor-descripcion {
+      text-align: center;
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 1rem;
+    }
+
+    .descuento-badge {
+      background: var(--cyan);
+      padding: 0.4rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.85rem;
+      display: inline-block;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    /* Formulario */
+    .form-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 3rem 2rem;
+      background: white;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 2rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid input,
+    .form-grid select {
+      padding: 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 2rem;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+
+    .form-grid input:focus,
+    .form-grid select:focus {
+      outline: none;
+      border-color: var(--naranja);
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .btn-enviar {
+      background: var(--naranja);
+      color: white;
+      padding: 1rem 3rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .btn-enviar:hover {
+      background: var(--naranja-hover);
+    }
+
+    .titulaciones-section {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .titulaciones-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 3rem;
+    }
+
+    .titulaciones-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .titulacion-card {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      color: white;
+      transition: transform 0.3s;
+    }
+
+    .titulacion-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .titulacion-card h4 {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .titulacion-card h3 {
+      font-size: 1.5rem;
+      color: var(--cyan);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .titulacion-info {
+      font-size: 0.85rem;
+      margin: 0.3rem 0;
+      opacity: 0.9;
+    }
+
+    .btn-tarifas {
+      background: linear-gradient(135deg, #be185d 0%, #9f1239 100%);
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+
+    .btn-tarifas:hover {
+      transform: scale(1.05);
+    }
+
+    /* Secciones adicionales */
+    .info-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .info-section img {
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .info-section h3 {
+      font-size: 2rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 1rem;
+    }
+
+    .razones-section {
+      background: var(--azul-oscuro);
+      color: white;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+    }
+
+    .razones-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .razon-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .razon-card img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .pasos-section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .pasos-section h3 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--azul-oscuro);
+      margin-bottom: 2rem;
+    }
+
+    .pasos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .paso-card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      height: 400px;
+    }
+
+    .paso-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .paso-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 2rem;
+      color: white;
+    }
+
+    .paso-numero {
+      background: var(--naranja);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 968px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+      
+      .valores-section,
+      .titulaciones-grid,
+      .form-grid,
+      .razones-grid,
+      .pasos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#contenido"> Saltar al contenido</a>
-  <header class="site-header" role="banner">
-    <div class="container">
-      <div class="brand">
-        <img src="assets/logo.svg" alt="Logo UCompensar" width="40" height="40" />
-        <span> UCompensar</span>
+
+  <!-- cabecera  Superior -->
+  <header class="top-header">
+    <div class="top-nav">
+      <div class="logo">
+       <img src="assets/logo2.PNG" alt="Logo UCompensar" width="300" height="70" />
+        <div class="logo-text">
+      
+        </div>
       </div>
-      <nav class="site-nav" aria-label="Principal">
-        <button id="btnMenu" class="btn btn-outline" aria-expanded="false" aria-controls="menu">Menú</button>
-        <ul id="menu" class="menu" hidden>
-          <li><a href="#programa">Programa</a></li>
-          <li><a href="#plan-estudios">Plan de estudios</a></li>
-          <li><a href="#admisiones">Admisiones</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </nav>
+      <ul class="top-menu">
+        <li><a href="#graduados">Graduados</a></li>
+        <li><a href="#estudiantes">Estudiantes</a></li>
+        <li><a href="#admision">Estado de Admisión</a></li>
+        <li><a href="#reingresos">Reingresos</a></li>
+        <li><a href="#pago">Pago en Línea</a></li>
+        <li><a href="#aplicativos">Aplicativos</a></li>
+        <li><a href="#emisora">Emisora</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#trabajar" class="btn-trabajar">Trabaja con nosotros</a></li>
+      </ul>
     </div>
   </header>
 
-  <section class="hero" role="region" aria-label="Hero">
-    <div class="container">
-      <h1><strong>Ingeniería de Software</strong> — Bogotá</h1>
-      <p class="lead">Forma profesionales capaces de analizar, diseñar, construir y desplegar sistemas de software modernos.</p>
-      <div class="cta-group">
-        <a class="btn btn-primary" href="#admisiones">Inscríbete</a>
-        <a class="btn btn-secondary" href="#plan-estudios">Ver plan</a>
+  <!-- Navegación pagina Principal -->
+  <header class="main-header">
+    <nav class="main-nav">
+      <ul class="nav-menu">
+        <li><a href="#institucion">La institución</a></li>
+        <li><a href="#estudia">Estudia con Nosotros</a></li>
+        <li><a href="#facultades">Facultades</a></li>
+        <li><a href="#programas">Programas</a></li>
+        <li><a href="#campus">Campus Av 68</a></li>
+        <li><a href="#sena">SENA</a></li>
+        <li><a href="#financiera">Zona Financiera</a></li>
+        <li><a href="#edtech">EdTech</a></li>
+      </ul>
+      <button class="search-btn">🔍</button>
+    </nav>
+  </header>
+
+  <!-- Secciones -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Estudia</h2>
+        <h1>Ingeniería de Sistemas</h1>
+        <div class="hero-info">
+          <p><strong>SNIES:</strong> 90598 / <strong>Resolución:</strong> 2841 - Febrero 21 de 2018. Vig 7 años.</p>
+          <p><strong>Duración del programa:</strong> 10 semestres</p>
+          <p><strong>Facultad:</strong> Ingeniería</p>
+          <p><strong>Jornada diurna y jornada nocturna</strong></p>
+        </div>
+        <a href="#plan" class="btn-plan">
+          Plan de estudios
+          <span>⬇</span>
+        </a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=500&h=600&fit=crop" alt="Estudiante de Ingeniería">
       </div>
     </div>
   </section>
 
-  <main id="contenido" class="container">
-    <section id="programa" class="section">
-      <h2> Sobre el programa</h2>
-      <p><em>Aprende haciendo:</em> enfoque práctico con proyectos semestrales, laboratorios y retos de la industria.</p>
-      <ul class="features">
-        <li>Duración: 8 semestres</li>
-        <li>Modalidad: Presencial</li>
-        <li>Jornada: Diurna / Nocturna</li>
-      </ul>
-    </section>
 
-    <section id="plan-estudios" class="section">
-      <h2>Plan de estudios</h2>
-      <details>
-        <summary>Semestre 1</summary>
-        <ul>
-          <li>Fundamentos de Programación</li>
-          <li>Introducción al Desarrollo Web</li>
-          <li>Matemáticas I</li>
-        </ul>
-      </details>
-      <details>
-        <summary>Semestre 2</summary>
-        <ul>
-          <li>Estructuras de Datos</li>
-          <li>Programación Orientada a Objetos</li>
-          <li>Base de Datos I</li>
-        </ul>
-      </details>
-    </section>
-
-    <section id="admisiones" class="section">
-      <h2>Admisiones</h2>
-      <p>Conoce los requisitos y fechas del proceso de inscripción.</p>
-      <div class="card grid-2">
-        <div>
-          <h3>Requisitos</h3>
-          <ol>
-            <li>Documento de identidad</li>
-            <li>Certificado de estudios</li>
-            <li>Formulario de inscripción</li>
-          </ol>
-        </div>
-        <form id="formDemo" aria-labelledby="tituloForm">
-          <h3 id="tituloForm">Recibe información</h3>
-          <label for="nombre">Nombre</label>
-          <input id="nombre" name="nombre" required placeholder="Tu nombre">
-          <label for="correo">Correo</label>
-          <input id="correo" name="correo" type="email" required placeholder="tunombre@correo.com">
-          <label for="jornada">Jornada de interés</label>
-          <select id="jornada" name="jornada" required>
-            <option value="">Seleccione</option>
-            <option>Diurna</option>
-            <option>Nocturna</option>
-          </select>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-          <p id="msg" role="status" aria-live="polite"></p>
-        </form>
+  <section class="valores-section">
+    <div class="valor-card">
+      <div class="icon-badge">💰</div>
+      <h3>Valor Afiliado</h3>
+      <div class="valor-precio">$3.944.160</div>
+      <p style="text-align: center; font-size: 0.9rem;">Primer semestre</p>
+      <div style="text-align: center; margin-top: 1rem;">
+        <span class="descuento-badge">10 % dto</span>
       </div>
-    </section>
-
-    <section id="contacto" class="section">
-      <h2>Contacto</h2>
-      <address>
-        <strong>UCompensar</strong><br>
-        Bogotá D.C.<br>
-        <a href="mailto:info@ucompensar.edu.co">info@ucompensar.edu.co</a>
-      </address>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small> 2025 — Clon con fines académicos. Diseñado por el equipo.</small>
-      <button id="btnTema" class="btn btn-outline" aria-pressed="false"> Cambiar tema</button>
+      <p class="valor-descripcion">para afiliados a la caja de compensación Compensar de cualquier categoría.</p>
     </div>
-  </footer>
 
-  <script src="script.js" defer></script>
-</body>
-</html>
+    <div class="valor-card">
+      <div class="icon-badge">📚</div>
+      <h3>Valor Programa</h3>
+      <div class="valor-precio">$4.382.400</div>
+      <p style="text-align: center; font-size: 0.9rem;">Primer semestre</p>
+      <p class="valor-descripcion">Inversión por semestre de tu programa de pregrado.</p>
+    </div>
+
+    <div class="valor-card">
+      <div class="icon-badge">🎓</div>
+      <h3>Valor Becado</h3>
+      <div class="valor-precio">$1.095.600</div>
+      <p style="text-align: center; font-size: 0.9rem;">Primer semestre</p>
+      <div style="text-align: center; margin-top: 1rem;">
+        <span class="descuento-badge">Beca del 75 %</span>
+      </div>
+      <p class="valor-descripcion">para afiliados Compensar A o B, que cumplan con los requisitos (cupos limitados).</p>
+    </div>
+  </section>
+
+  <!-- Formulario -->
+  <section class="form-section">
+    <h2>Déjanos tus datos</h2>
+    <form>
+      <div class="form-grid">
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Apellidos" required>
+        <input type="text" placeholder="Documento de Identidad" required>
+        <input type="email" placeholder="Correo" required>
+        <input type="tel" placeholder="Celular" required>
+        <select required>
+          <option>¿Cuándo planeas iniciar tus estudios?</option>
+          <option>Inmediatamente</option>
+          <option>Próximo semestre</option>
+        </select>
+        <select required>
+          <option>¿Necesitas financiación?</option>
+          <option>Sí</option>
+          <option>No</option>
+        </select>
+        <select required>
+          <option>¿Cuál es tu nivel de escolaridad?</option>
+          <option>Bachiller</option>
+          <option>Técnico</option>
+          <option>Tecnólogo</option>
+        </select>
+        <select required>
+          <option>Canal preferido de contacto</option>
+          <option>WhatsApp</option>
+          <option>Llamada</option>
+          <option>Email</option>
+        </select>
+      </div>
+      <div class="form-footer">
+        <label class="checkbox-label">
+          <input type="checkbox" required>
+          Acepto la Política de Protección de Datos Personales
+        </label>
+        <button type="submit" class="btn-enviar">Enviar</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="titulaciones-section">
+    <h2>Titulaciones</h2>
+    <div class="titulaciones-grid">
+      <div class="titulacion-card">
+        <h4>Técnica profesional en</h4>
+        <h3>Operación y Mantenimiento de Bases de Datos</h3>
+        <p class="titulacion-info">Resolución 2839 del 21 de febrero de 2018</p>
+        <p class="titulacion-info">Años de vigencia: 7 años</p>
+        <p class="titulacion-info">SNIES: 106817</p>
+        <a href="#tarifas" class="btn-tarifas">Ver tarifas de créditos aquí</a>
+      </div>
+
+      <div class="titulacion-card">
+        <h4>Tecnología en</h4>
+        <h3>Análisis y Desarrollo de Sistemas de Información</h3>
+        <p class="titulacion-info">Resolución 2840 del 21 de febrero de 2018</p>
+        <p class="titulacion-info">Años de vigencia: 7 años</p>
+        <p class="titulacion-info">SNIES: 90619</p>
+        <a href="#tarifas" class="btn-tarifas">Ver tarifas de créditos aquí</a>
+      </div>
+
+      <div class="titulacion-card">
+        <h4>Profesional en</h4>
+        <h3>Ingeniería de Sistemas</h3>
+        <p class="titulacion-info">Resolución 2841 del 21 de febrero de 2018</p>
+        <p class="titulacion-info">Años de vigencia: 7 años</p>
+        <p class="titulacion-info">SNIES: 90598</p>
+        <a href="#tarifas" class="btn-tarifas">Ver tarifas de créditos aquí</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="info-section">
+    <div>
+      <h3>Conoce tu futuro académico</h3>
+      <p>Como profesional en Ingeniería de Sistemas, podrás identificar, formular y resolver problemas complejos con base en criterios, normativas y estándares, desarrollando soluciones tecnológicas eficientes, efectivas, seguras y escalables, facilitando diferentes aspectos de la vida empresarial y social, logrando así la innovación de procesos, productos y procedimientos en el lenguaje natural.</p>
+      <p style="margin-top: 1rem;">Te puedes certificar internacionalmente en tecnologías cloud tales como Amazon AWS, certificación de la universidad de Microsoft Azure, certificación de la universidad de Google Cloud. Estas certificaciones demuestran procedimientos en el lenguaje natural.</p>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop" alt="Futuro académico">
+    </div>
+  </section>
+
+
+  <section class="razones-section">
+    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem;">¿Por qué elegirnos?</h3>
+    <div class="razones-grid">
+      <div class="razon-card">
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=300&h=300&fit=crop" alt="Razón 1">
+        <p>Formación práctica y actualizada con las últimas tecnologías del mercado.</p>
+      </div>
+      <div class="razon-card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=300&fit=crop" alt="Razón 2">
+        <p>Docentes expertos con amplia experiencia en la industria tecnológica.</p>
+      </div>
+      <div class="razon-card">
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&h=300&fit=crop" alt="Razón 3">
+        <p>Convenios con empresas líderes para prácticas profesionales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section" style="flex-direction: row-reverse;">
+    <div>
+      <h3>El perfil que estás construyendo</h3>
+      <p>Siendo profesional en Ingeniería de Sistemas estarás preparado para liderar, diseñar, desarrollar y aplicar soluciones tecnológicas con enfoque estratégico, aportar diseño algorítmico, gestión de bases de datos, desarrollo de software, infraestructura de sistemas, comunicación efectiva y trabajo colaborativo.</p>
+    </div>
+    <div>
+      <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=400&h=400&fit=crop" alt="Perfil profesional" style="border-radius: 50%;">
+    </div>
+  </section>
+
+  <section class="razones-section">
+    <h3 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem;">Sé un experto:</h3>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+      Co-desarrolla aplicaciones que cambian el mundo, desarrolla tu vida profesional en el sector público o privado, diseña soluciones para los cambios tecnológicos y determinar el curso óptimo y pertinente, gestiona proyectos de innovación y desarrollo tecnológico, implementa soluciones de ciberseguridad en el mercado laboral, trabaja en empresas nacionales e internacionales en sector comercial, financiero, salud y gobierno, comprende sistemas y procesos para proponer y desarrollar soluciones de automatización.
+    </p>
+  </section>
+
+  <section class="pasos-section">
+    <h3>3 pasos para estudiar en la Universidad del futuro</h3>
+    <div class="pasos-grid">
+      <div class="paso-card">
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=500&fit=crop" alt="Paso 1">
+        <div class="paso-overlay">
+          <div class="paso-numero">Paso 1</div>
+          <h4>Formulario de Inscripción</h4>
+          <button class="btn-enviar" style="margin-top: 1rem;">MÁS INFORMACIÓN</button>
+        </div>
+      </div>
+      <div class="paso-card">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=500&fit=crop" alt="Paso 2">
+        <div class="paso-overlay">
+          <div class="paso-numero">Paso 2</div>
+          <h4>Proceso de Admisión</h4>
+        </div>

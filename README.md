@@ -12,10 +12,6 @@ Programa de Ingeniería de Software
 - `styles.css`: **CSS externo**: layout, tipografía, temas claro/oscuro, componentes (botón, card, grid).  
 - `script.js`: **JavaScript** para modificar estructura y estilos: menú accesible con ARIA, validación de formulario, inserción dinámica de nodos, cambio de tema.
 
-## Criterios cubiertos
-- **Asociación con funcionalidades del navegador**: meta viewport responsive, preloads, navegación con hash (`#`), `details/summary`, validación nativa `required`, atributos accesibles `aria-*`.
-- **Controles de acceso y datos**: ejemplo de formulario con validación básica (cliente). Sugerencia: complementar con validación del lado servidor en un curso posterior.
-- **Buenas prácticas**: HTML semántico (`header`, `main`, `section`, `nav`), CSS externo, accesibilidad (skip link, contrastes, focus visible), SEO básico (title + meta description).
 
 ## Licencia
 Uso académico.

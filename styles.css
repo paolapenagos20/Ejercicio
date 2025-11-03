@@ -25,8 +25,39 @@ body {
 
 .site-header { background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 10; }
 .brand { display: inline-flex; align-items: center; gap: .5rem; font-weight: 700; }
-.site-nav { float: right; }
-#menu { list-style: none; padding: 0; margin: 0; display: grid; grid-auto-flow: column; gap: 1rem; }
+
+.site-nav { 
+  float: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+/* Botón naranja */
+#btnMenu {
+  background-color: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+  font-weight: 600;
+  order: 2; 
+}
+
+#btnMenu:hover {
+  background-color: #ff8533;
+  border-color: #ff8533;
+}
+
+/* Menú horizontal siempre visible */
+#menu { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex !important; 
+  gap: 1rem;
+  order: 1; 
+}
+
 #menu a { text-decoration: none; color: var(--text); font-weight: 600; }
 #menu a:hover { color: var(--brand); }
 

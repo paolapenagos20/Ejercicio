@@ -1,6 +1,7 @@
 Programa de Ingeniería de Software
 
 > ⚠️  realizar la maquetación de una página web haciendo uso de los elementos de HTML y modificando su estilo a través de CSS.
+> Nos guiamos de la Pagina UCOMPENSAR
 
 ## Cómo ejecutar
 1. Descarga este paquete y descomprímelo.

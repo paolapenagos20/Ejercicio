@@ -1,26 +1,26 @@
-// estructura y estilos con JavaScript
+// cambios de estructura y estilos con JavaScript
 (function () {
   const btnMenu = document.getElementById('btnMenu');
   const menu = document.getElementById('menu');
   const btnTema = document.getElementById('btnTema');
-  const form = document.getElementById('formD');
+  const form = document.getElementById('Formud');
   const msg = document.getElementById('msg');
 
-  // Control de menú
+  // menú
   btnMenu.addEventListener('click', () => {
     const expanded = btnMenu.getAttribute('aria-expanded') === 'true';
     btnMenu.setAttribute('aria-expanded', String(!expanded));
     menu.hidden = expanded;
   });
 
-  // Cambio de tema agregando
+  // Cambio de tema agregando<body>
   btnTema.addEventListener('click', () => {
     const pressed = btnTema.getAttribute('aria-pressed') === 'true';
     btnTema.setAttribute('aria-pressed', String(!pressed));
     document.body.classList.toggle('dark');
   });
 
-  // validar y mostrar mensaje
+  // Modificación del DOM validar y mostrar mensaje
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const nombre = form.nombre.value.trim();
@@ -36,10 +36,4 @@
     msg.style.color = 'green';
     form.reset();
   });
-
-  // Inyectar aviso dinámico
-  const aviso = document.createElement('div');
-  aviso.className = 'card';
-  aviso.innerHTML = '<p><strong>Aviso:</strong> Esta es una réplica con fines educativos.</p>';
-  document.querySelector('#programa')?.appendChild(aviso);
 })();

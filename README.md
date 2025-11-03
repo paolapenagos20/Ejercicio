@@ -1,4 +1,4 @@
-# Clon académico — Programa de Ingeniería de Software (UCompensar)
+Programa de Ingeniería de Software
 
 > ⚠️ Este proyecto es un **ejercicio educativo** para la asignatura. No es el sitio oficial.
 
